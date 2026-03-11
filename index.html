@@ -2,22 +2,44 @@
 <html lang="pt-br">
 
 <head>
-
+<link rel="icon" href="img/favicon.png">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Serralheria Profissional BH</title>
+<title>Serralheria em Belo Horizonte | Portões, Corrimões e Estruturas Metálicas</title>
 
 <meta name="description" content="Serralheria em Belo Horizonte especializada em portões, corrimões, escadas metálicas e estruturas metálicas.">
 <meta name="robots" content="index, follow">
 <meta name="author" content="Serralheria Profissional BH">
 <meta name="geo.region" content="BR-MG">
 <meta name="geo.placename" content="Belo Horizonte">
+<meta name="geo.position" content="-19.9167;-43.9345">
+<meta name="ICBM" content="-19.9167, -43.9345">
+<meta property="og:title" content="Serralheria Profissional em Belo Horizonte">
+<meta property="og:description" content="Portões, corrimões, escadas e estruturas metálicas sob medida.">
+<meta property="og:image" content="img/banner1.jpg">
+<meta property="og:type" content="website">
+
 
 <link rel="stylesheet" href="style.css">
+<link rel="preload" as="image" href="img/logo.png">
+<link rel="preconnect" href="https://www.google.com">
 
 </head>
-
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "LocalBusiness",
+ "name": "Serralheria Profissional BH",
+ "address": {
+   "@type": "PostalAddress",
+   "addressLocality": "Belo Horizonte",
+   "addressRegion": "MG",
+   "addressCountry": "BR"
+ },
+ "telephone": "+55 31 98698-5930"
+}
+</script>
 <body>
 
 <!-- MENU -->
@@ -39,9 +61,11 @@ Vitaser
 
 <!-- BOTÃO MENU MOBILE -->
 
-<button class="menu-toggle" onclick="toggleMenu()">☰</button>
+<button class="menu-toggle" onclick="toggleMenu()" aria-label="Abrir menu">
+☰
+</button>
 
-<nav id="menuNav">
+<nav id="menuNav" aria-label="Menu principal">
 
 <a href="#servicos">Serviços</a>
 <a href="#galeria">Projetos</a>
@@ -152,37 +176,37 @@ Vitaser
 <div class="carousel" id="carousel">
 
 <div class="projeto" onclick="abrirProjeto('portao')">
-<img src="img/banner1.jpg" alt="Portão automático" loading="lazy">
+<img src="img/banner1.jpg" alt="Portão automático" loading="lazy" decoding="async">
 <h3>Ancheta</h3>
 <p>Coberturas, galpões e estruturas industriais.</p>
 </div>
 
 <div class="projeto" onclick="abrirProjeto('corrimao')">
-<img src="img/banner2.jpg" alt="Corrimão metálico" loading="lazy">
+<img src="img/banner2.jpg" alt="Portão automático" loading="lazy" decoding="async">
 <h3>Savassi</h3>
 <p>Coberturas, galpões e estruturas industriais.</p>
 </div>
 
 <div class="projeto" onclick="abrirProjeto('escada')">
-<img src="img/banner3.jpg" alt="Escada metálica" loading="lazy">
+<img src="img/banner3.jpg" aalt="Portão automático" loading="lazy" decoding="async">
 <h3>Nova Lima</h3>
 <p>Coberturas, galpões e estruturas industriais.</p>
 </div>
 
 <div class="projeto" onclick="abrirProjeto('estrutura')">
-<img src="img/banner4.jpg" alt="Estrutura metálica" loading="lazy">
+<img src="img/banner4.jpg" alt="Portão automático" loading="lazy" decoding="async">
 <h3>Buritis</h3>
 <p>Coberturas, galpões e estruturas industriais.</p>
 </div>
 
 <div class="projeto" onclick="abrirProjeto('portao')">
-<img src="img/banner5.jpg" alt="Portão basculante" loading="lazy">
+<img src="img/banner5.jpg" alt="Portão automático" loading="lazy" decoding="async">
 <h3>Belo Horizonte</h3>
 <p>Coberturas, galpões e estruturas industriais.</p>
 </div>
 
 <div class="projeto" onclick="abrirProjeto('corrimao')">
-<img src="img/banner6.jpg" alt="Corrimão de vidro" loading="lazy">
+<img src="img/banner6.jpg" alt="Portão automático" loading="lazy" decoding="async">
 <h3>Belvedere</h3>
 <p>Coberturas, galpões e estruturas industriais.</p>
 </div>
@@ -240,13 +264,14 @@ Vitaser
 
 <form id="formOrcamento" class="reveal">
 
-<input type="text" id="nome" placeholder="Seu nome" required>
+<input type="text" id="nome" name="nome" placeholder="Seu nome" required>
 
-<input type="tel" id="telefone" placeholder="Telefone" required>
+<input type="tel" id="telefone" name="telefone" placeholder="Telefone" required>
 
-<textarea id="mensagem" placeholder="Descreva seu projeto"></textarea>
+<textarea id="mensagem" name="mensagem" placeholder="Descreva seu projeto"></textarea>
 
 <button type="submit" class="btn">Enviar WhatsApp</button>
+
 
 </form>
 
