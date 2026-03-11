@@ -4,15 +4,10 @@ padding:0;
 box-sizing:border-box;
 }
 
-html{
-scroll-behavior:smooth;
-}
-
 body{
 font-family:Arial;
 background:#0f172a;
 color:white;
-text-align:center;
 }
 
 .container{
@@ -27,7 +22,7 @@ padding:0 20px;
 position:fixed;
 top:0;
 width:100%;
-background:rgba(0,0,0,0.6);
+background:rgba(0,0,0,0.7);
 backdrop-filter:blur(10px);
 z-index:1000;
 }
@@ -47,42 +42,42 @@ width:50px;
 color:white;
 text-decoration:none;
 margin-left:25px;
-transition:0.3s;
 }
 
-#menu nav a:hover{
-color:#22c55e;
-}
-
-/* MENU MOBILE */
+/* BOTÃO HAMBURGUER */
 
 .menu-toggle{
 display:none;
-font-size:30px;
+flex-direction:column;
+cursor:pointer;
 background:none;
 border:none;
-color:white;
-cursor:pointer;
 }
 
-@media (max-width:768px){
+.menu-toggle span{
+width:25px;
+height:3px;
+background:white;
+margin:4px 0;
+transition:0.4s;
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
 
 .menu-toggle{
-display:block;
+display:flex;
 }
 
 #menuNav{
-display:none;
-flex-direction:column;
 position:absolute;
 top:80px;
-left:0;
+left:-100%;
 width:100%;
 background:#111;
-}
-
-#menuNav.ativo{
-display:flex;
+flex-direction:column;
+transition:0.4s;
 }
 
 #menuNav a{
@@ -90,23 +85,8 @@ padding:15px;
 border-bottom:1px solid #222;
 }
 
-}
-#menuNav{
-display:none;
-flex-direction:column;
-width:100%;
-background:#111;
-position:absolute;
-top:80px;
-left:0;
-}
-
 #menuNav.ativo{
-display:flex;
-}
-
-#menuNav a{
-padding:15px;
+left:0;
 }
 
 }
@@ -115,10 +95,10 @@ padding:15px;
 
 .hero{
 height:80vh;
-background:url("img/banner1.jpg") center/cover no-repeat;
+background:url(img/banner1.jpg) center/cover;
 display:flex;
 align-items:center;
-position:relative;
+text-align:center;
 }
 
 .hero-overlay{
@@ -131,28 +111,6 @@ background:rgba(0,0,0,0.6);
 .hero-content{
 position:relative;
 z-index:2;
-max-width:700px;
-margin:auto;
-}
-
-.hero h1{
-font-size:48px;
-}
-
-.hero p{
-margin-top:10px;
-}
-
-/* BOTÃO */
-
-.btn{
-background:#22c55e;
-padding:14px 28px;
-border-radius:8px;
-color:white;
-text-decoration:none;
-display:inline-block;
-margin-top:20px;
 }
 
 /* GRID */
@@ -167,53 +125,14 @@ margin-top:40px;
 .card{
 background:#1e293b;
 padding:20px;
-border-radius:12px;
+border-radius:10px;
 transition:0.3s;
 }
 
 .card:hover{
 transform:translateY(-10px);
-background:linear-gradient(15deg,#25D366,#4ADE80);
+background:#22c55e;
 }
-
-/* GALERIA */
-
-.carousel{
-display:flex;
-gap:20px;
-overflow-x:auto;
-scroll-behavior:smooth;
-}
-
-.projeto{
-min-width:250px;
-background:#1e293b;
-border-radius:10px;
-cursor:pointer;
-}
-
-.projeto img{
-width:100%;
-height:180px;
-object-fit:cover;
-}
-
-/* BOTÕES */
-
-.nav{
-position:absolute;
-top:50%;
-transform:translateY(-50%);
-font-size:30px;
-background:rgba(0,0,0,0.6);
-border:none;
-color:white;
-padding:10px;
-cursor:pointer;
-}
-
-.prev{left:-10px}
-.next{right:-10px}
 
 /* WHATSAPP */
 
@@ -223,12 +142,31 @@ bottom:20px;
 right:20px;
 background:#25D366;
 color:white;
-font-size:28px;
 padding:15px;
 border-radius:50%;
+font-size:28px;
 }
 
 /* GALERIA */
+
+.carousel{
+display:flex;
+gap:20px;
+overflow-x:auto;
+}
+
+.projeto{
+min-width:250px;
+cursor:pointer;
+}
+
+.projeto img{
+width:100%;
+height:180px;
+object-fit:cover;
+}
+
+/* LIGHTBOX */
 
 .galeria-lightbox{
 position:fixed;

@@ -9,8 +9,6 @@
 <title>Serralheria em Belo Horizonte | Portões e Estruturas Metálicas</title>
 
 <meta name="description" content="Serralheria em Belo Horizonte especializada em portões, corrimões, escadas metálicas e estruturas metálicas.">
-<meta name="robots" content="index, follow">
-<meta name="author" content="Serralheria Profissional BH">
 
 <link rel="stylesheet" href="style.css">
 
@@ -24,7 +22,7 @@
 
 <div class="logo-titulo">
 
-<img src="img/logo.png" class="logo" alt="Logo Vitaser">
+<img src="img/logo.png" class="logo">
 
 <div>
 Vitaser
@@ -33,7 +31,13 @@ Vitaser
 
 </div>
 
-<button class="menu-toggle" onclick="toggleMenu()">☰</button>
+<button class="menu-toggle" onclick="toggleMenu()">
+
+<span></span>
+<span></span>
+<span></span>
+
+</button>
 
 <nav id="menuNav">
 
@@ -53,11 +57,11 @@ Vitaser
 
 <div class="hero-overlay"></div>
 
-<div class="container hero-content reveal">
+<div class="container hero-content">
 
 <h1>Serralheria Profissional em Belo Horizonte</h1>
 
-<p>Portões, corrimões, escadas e estruturas metálicas sob medida</p>
+<p>Portões, corrimões e estruturas metálicas sob medida</p>
 
 <a href="#contato" class="btn">Solicitar orçamento</a>
 
@@ -70,17 +74,17 @@ Vitaser
 
 <div class="container contador-grid">
 
-<div class="contador-item reveal">
+<div>
 <h2 class="numero" data-numero="5">0</h2>
 <p>Anos de experiência</p>
 </div>
 
-<div class="contador-item reveal">
+<div>
 <h2 class="numero" data-numero="500">0</h2>
 <p>Projetos realizados</p>
 </div>
 
-<div class="contador-item reveal">
+<div>
 <h2 class="numero" data-numero="245">0</h2>
 <p>Clientes satisfeitos</p>
 </div>
@@ -94,28 +98,28 @@ Vitaser
 
 <div class="container">
 
-<h2 class="reveal">Nossos Serviços</h2>
+<h2>Nossos Serviços</h2>
 
 <div class="grid">
 
-<div class="card reveal">
+<div class="card">
 <h3>Portões</h3>
-<p>Basculantes, deslizantes e automáticos.</p>
+<p>Basculantes, deslizantes e automáticos</p>
 </div>
 
-<div class="card reveal">
+<div class="card">
 <h3>Corrimões</h3>
-<p>Corrimões modernos para escadas.</p>
+<p>Corrimões modernos para escadas</p>
 </div>
 
-<div class="card reveal">
+<div class="card">
 <h3>Escadas Metálicas</h3>
-<p>Escadas resistentes e modernas.</p>
+<p>Escadas resistentes e modernas</p>
 </div>
 
-<div class="card reveal">
+<div class="card">
 <h3>Estruturas Metálicas</h3>
-<p>Coberturas, galpões e estruturas industriais.</p>
+<p>Coberturas e galpões</p>
 </div>
 
 </div>
@@ -129,9 +133,9 @@ Vitaser
 
 <div class="container">
 
-<h2 class="reveal">Projetos Realizados</h2>
+<h2>Projetos Realizados</h2>
 
-<div class="carousel-container reveal">
+<div class="carousel-container">
 
 <button class="nav prev" onclick="scrollGaleria(-1)">❮</button>
 
@@ -168,46 +172,18 @@ Vitaser
 </section>
 
 
-<section id="clientes" class="clientes">
-
-<div class="container">
-
-<h2 class="reveal">Clientes Satisfeitos</h2>
-
-<div class="grid">
-
-<div class="card reveal">
-<p>Serviço excelente e entrega rápida.</p>
-<strong>João Silva</strong>
-</div>
-
-<div class="card reveal">
-<p>Portão automático perfeito.</p>
-<strong>Maria Souza</strong>
-</div>
-
-<div class="card reveal">
-<p>Escada metálica muito bem feita.</p>
-<strong>Carlos Andrade</strong>
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-
 <section id="contato" class="contato">
 
 <div class="container">
 
-<h2 class="reveal">Solicitar Orçamento</h2>
+<h2>Solicitar orçamento</h2>
 
-<form id="formOrcamento" class="reveal">
+<form id="formOrcamento">
 
 <input type="text" id="nome" placeholder="Seu nome" required>
+
 <input type="tel" id="telefone" placeholder="Telefone" required>
+
 <textarea id="mensagem" placeholder="Descreva seu projeto"></textarea>
 
 <button type="submit" class="btn">Enviar WhatsApp</button>
@@ -221,19 +197,18 @@ Vitaser
 
 <footer>
 
-<div class="container">
 <p>© 2026 Serralheria Profissional BH</p>
-</div>
 
 </footer>
 
 
-<a href="https://wa.me/5531986985930" class="whatsapp" target="_blank">💬 ok</a>
+<a href="https://wa.me/5531986985930" class="whatsapp">💬</a>
 
 
 <div id="galeriaProjeto" class="galeria-lightbox">
 
 <button class="galeria-fechar" onclick="fecharProjeto()">✕</button>
+
 <button class="galeria-prev" onclick="trocarImagem(-1)">❮</button>
 
 <img id="galeriaImagem">
@@ -241,6 +216,7 @@ Vitaser
 <button class="galeria-next" onclick="trocarImagem(1)">❯</button>
 
 </div>
+
 
 <script src="script.js"></script>
 
