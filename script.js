@@ -251,3 +251,6 @@ border:none;
 color:white;
 cursor:pointer;
 }
+function toggleMenu(){
+document.getElementById("menuNav").classList.toggle("ativo")
+}
