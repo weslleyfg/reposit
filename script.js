@@ -1,309 +1,253 @@
-// ===============================
-// CONTADOR ANIMADO
-// ===============================
-
-const numeros = document.querySelectorAll(".numero");
-
-if (numeros.length > 0) {
-
-numeros.forEach(numero => {
-
-let total = parseInt(numero.dataset.numero);
-let count = 0;
-
-let intervalo = setInterval(() => {
-
-count++;
-numero.innerText = count;
-
-if (count >= total) {
-clearInterval(intervalo);
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
 }
 
-}, 20);
-
-});
-
-}
-// ===============================
-// menu para celular
-// ===
-
-function toggleMenu(){
-document.getElementById("menuNav").classList.toggle("ativo")
+html{
+scroll-behavior:smooth;
 }
 
-
-// ===============================
-// ANIMAÇÃO AO ROLAR PÁGINA
-// ===============================
-
-const reveals = document.querySelectorAll(".reveal");
-
-if (reveals.length > 0) {
-
-const observer = new IntersectionObserver(entries => {
-
-entries.forEach(entry => {
-
-if (entry.isIntersecting) {
-entry.target.classList.add("active");
+body{
+font-family:Arial;
+background:#0f172a;
+color:white;
+text-align:center;
 }
 
-});
-
-}, {
-threshold: 0.2
-});
-
-reveals.forEach(el => observer.observe(el));
-
+.container{
+max-width:1200px;
+margin:auto;
+padding:0 20px;
 }
 
+/* MENU */
 
-// ===============================
-// LIGHTBOX DAS IMAGENS
-// ===============================
-
-const imagens = document.querySelectorAll(".projeto img");
-const lightbox = document.getElementById("lightbox");
-const lightboxImg = document.getElementById("lightboxImg");
-
-if (imagens.length > 0 && lightbox && lightboxImg) {
-
-imagens.forEach(img => {
-
-img.addEventListener("click", (e) => {
-
-e.stopPropagation(); // impede abrir a galeria
-
-lightbox.style.display = "flex";
-lightboxImg.src = img.src;
-
-});
-});
-
-lightbox.addEventListener("click", () => {
-
-lightbox.style.display = "none";
-
-});
-
+#menu{
+position:fixed;
+top:0;
+width:100%;
+background:rgba(0,0,0,0.6);
+backdrop-filter:blur(10px);
+z-index:1000;
 }
 
-
-// ===============================
-// FORMULÁRIO WHATSAPP
-// ===============================
-
-const form = document.getElementById("formOrcamento");
-
-if (form) {
-
-form.addEventListener("submit", function (e) {
-
-e.preventDefault();
-
-let nome = document.getElementById("nome").value;
-let telefone = document.getElementById("telefone").value;
-let mensagem = document.getElementById("mensagem").value;
-
-let texto = `Olá, gostaria de um orçamento.%0A
-Nome: ${nome}%0A
-Telefone: ${telefone}%0A
-Mensagem: ${mensagem}`;
-
-window.open(`https://wa.me/5531986985930?text=${texto}`);
-
-});
-
+.menu-container{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 0;
 }
 
-
-// ===============================
-// CARROSSEL ESTILO NETFLIX
-// ===============================
-
-function scrollGaleria(direcao) {
-
-const carousel = document.getElementById("carousel");
-
-if (!carousel) return;
-
-const larguraItem = 270;
-
-carousel.scrollBy({
-left: direcao * larguraItem,
-behavior: "smooth"
-});
-
+.logo{
+width:50px;
 }
 
-
-// ===============================
-// GALERIA DE FOTOS POR PROJETO
-// ===============================
-
-// ===============================
-// GALERIA PROFISSIONAL
-// ===============================
-
-const projetos = {
-
-portao:[
-"img/banner1.png",
-"img/banner2.jpg",
-"img/banner3.jpg"
-],
-
-corrimao:[
-"img/banner2.jpg",
-"img/banner3.jpg",
-"img/banner4.jpg"
-],
-
-escada:[
-"img/banner3.jpg",
-"img/banner4.jpg",
-"img/banner1.jpg"
-],
-
-estrutura:[
-"img/banner4.jpg",
-"img/banner1.jpg",
-"img/banner2.jpg"
-]
-
+#menu nav a{
+color:white;
+text-decoration:none;
+margin-left:25px;
+transition:0.3s;
 }
 
-let projetoAtual = []
-let indexAtual = 0
-
-function abrirProjeto(nome){
-
-const galeria = document.getElementById("galeriaProjeto")
-const img = document.getElementById("galeriaImagem")
-
-projetoAtual = projetos[nome]
-indexAtual = 0
-
-img.src = projetoAtual[indexAtual]
-
-galeria.style.display = "flex"
-
+#menu nav a:hover{
+color:#22c55e;
 }
 
-function trocarImagem(direcao){
+/* MENU MOBILE */
 
-indexAtual += direcao
-
-if(indexAtual < 0){
-indexAtual = projetoAtual.length - 1
+.menu-toggle{
+display:none;
+font-size:30px;
+background:none;
+border:none;
+color:white;
+cursor:pointer;
 }
 
-if(indexAtual >= projetoAtual.length){
-indexAtual = 0
+@media(max-width:768px){
+
+.menu-toggle{
+display:block;
 }
 
-document.getElementById("galeriaImagem").src = projetoAtual[indexAtual]
-
+#menuNav{
+display:none;
+flex-direction:column;
+width:100%;
+background:#111;
+position:absolute;
+top:80px;
+left:0;
 }
 
-function fecharProjeto(){
-
-document.getElementById("galeriaProjeto").style.display = "none"
-
+#menuNav.ativo{
+display:flex;
 }
 
-
-// fechar clicando fora
-
-document.getElementById("galeriaProjeto").addEventListener("click", function(e){
-
-if(e.target.id === "galeriaProjeto"){
-fecharProjeto()
-}
-
-})
-
-
-// fechar com ESC
-
-document.addEventListener("keydown", function(e){
-
-if(e.key === "Escape"){
-fecharProjeto()
-}
-
-})
-
-function abrirProjeto(nome) {
-
-let galeria = document.getElementById("galeriaProjeto");
-let container = document.getElementById("imagensProjeto");
-
-if (!galeria || !container) return;
-
-container.innerHTML = "";
-
-projetos[nome].forEach(img => {
-
-let imagem = document.createElement("img");
-
-imagem.src = img;
-
-container.appendChild(imagem);
-
-});
-
-galeria.style.display = "flex";
-
-}
-
-
-function fecharProjeto() {
-
-const galeria = document.getElementById("galeriaProjeto");
-
-if (galeria) {
-galeria.style.display = "none";
+#menuNav a{
+padding:15px;
 }
 
 }
 
+/* HERO */
 
-// ===============================
-// BANNER ROTATIVO
-// ===============================
-
-const banners = [
-"img/banner1.jpg",
-"img/banner2.jpg",
-"img/banner3.jpg",
-"img/banner4.jpg"
-];
-
-const hero = document.querySelector(".hero");
-
-if (hero) {
-
-let index = 0;
-
-function trocarBanner() {
-
-hero.style.backgroundImage = `url(${banners[index]})`;
-
-index++;
-
-if (index >= banners.length) {
-index = 0;
+.hero{
+height:80vh;
+background:url("img/banner1.jpg") center/cover no-repeat;
+display:flex;
+align-items:center;
+position:relative;
 }
 
+.hero-overlay{
+position:absolute;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.6);
 }
 
-trocarBanner();
-
-setInterval(trocarBanner, 3500);
-
+.hero-content{
+position:relative;
+z-index:2;
+max-width:700px;
+margin:auto;
 }
 
+.hero h1{
+font-size:48px;
+}
+
+.hero p{
+margin-top:10px;
+}
+
+/* BOTÃO */
+
+.btn{
+background:#22c55e;
+padding:14px 28px;
+border-radius:8px;
+color:white;
+text-decoration:none;
+display:inline-block;
+margin-top:20px;
+}
+
+/* GRID */
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+margin-top:40px;
+}
+
+.card{
+background:#1e293b;
+padding:20px;
+border-radius:12px;
+transition:0.3s;
+}
+
+.card:hover{
+transform:translateY(-10px);
+background:linear-gradient(15deg,#25D366,#4ADE80);
+}
+
+/* GALERIA */
+
+.carousel{
+display:flex;
+gap:20px;
+overflow-x:auto;
+scroll-behavior:smooth;
+}
+
+.projeto{
+min-width:250px;
+background:#1e293b;
+border-radius:10px;
+cursor:pointer;
+}
+
+.projeto img{
+width:100%;
+height:180px;
+object-fit:cover;
+}
+
+/* BOTÕES */
+
+.nav{
+position:absolute;
+top:50%;
+transform:translateY(-50%);
+font-size:30px;
+background:rgba(0,0,0,0.6);
+border:none;
+color:white;
+padding:10px;
+cursor:pointer;
+}
+
+.prev{left:-10px}
+.next{right:-10px}
+
+/* WHATSAPP */
+
+.whatsapp{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#25D366;
+color:white;
+font-size:28px;
+padding:15px;
+border-radius:50%;
+}
+
+/* GALERIA */
+
+.galeria-lightbox{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.9);
+display:none;
+align-items:center;
+justify-content:center;
+}
+
+.galeria-lightbox img{
+max-width:90%;
+max-height:80%;
+}
+
+.galeria-prev,
+.galeria-next{
+position:absolute;
+top:50%;
+font-size:40px;
+background:none;
+border:none;
+color:white;
+cursor:pointer;
+}
+
+.galeria-prev{left:30px}
+.galeria-next{right:30px}
+
+.galeria-fechar{
+position:absolute;
+top:20px;
+right:30px;
+font-size:30px;
+background:none;
+border:none;
+color:white;
+cursor:pointer;
+}
