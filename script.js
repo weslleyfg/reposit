@@ -90,7 +90,5 @@ document.getElementById("galeriaImagem").src=projetoAtual[indexAtual]
 }
 
 function fecharProjeto(){
-
 document.getElementById("galeriaProjeto").style.display="none"
-
 }
